@@ -37,7 +37,9 @@ container_openstack_password:
 
 ## Galera Options
 mysql_root_password:
-mysql_debian_sys_maint_password:
+
+# Defined in group_vars/galera, but can overriden here.
+# galera_wait_timeout: 3600
 
 
 ## Keystone Options
@@ -115,7 +117,7 @@ maas_monitoring_zones:
   - mzord
   - mzlon
   - mzhkg
-maas_repo_version: 10.0.0rc5
+maas_repo_version: 10.0.0
 # Specify the maas_fqdn_extension, defaults to empty string.
 # This will be appended to the inventory_name of a host for MaaS purposes.
 # The inventory name + maas_fqdn_extension must match the entity name in MaaS
@@ -139,6 +141,10 @@ nova_service_password:
 nova_v3_service_password:
 nova_s3_service_password:
 
+# Uncomment "nova_console_endpoint" to define a specific nova console URI or 
+# IP address this will construct the specific proxy endpoint for the console.
+# nova_console_endpoint: console.company_domain.name
+
 
 ## RPC Support
 rpc_support_holland_password:
@@ -147,3 +153,8 @@ rpc_support_holland_password:
 ## Kibana Options
 kibana_password:
 
+# Swift Options:
+swift_service_password:
+swift_container_mysql_password:
+swift_hash_path_suffix:
+swift_hash_path_prefix:
